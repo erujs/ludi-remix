@@ -1,53 +1,38 @@
-# Welcome to React Router!
+# Ludi Remix
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Ludi Remix, this is [React Router](https://reactrouter.com/home) + [Vite](https://vitejs.dev) project bootstrapped with [`create-react-router`](https://reactrouter.com/start/framework/installation), inspired by Remix Conventions.
 
-## Features
+## Tech Stack
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+ - Framework: Remix + React Router
+ - Styling: Tailwind CSS
+ - Deployment: Netlify
 
-## Getting Started
+## Local Setup
 
-### Installation
-
-Install the dependencies:
+1. Clone the repo:
 
 ```bash
-npm install
+git@github.com:erujs/ludi-remix.git
+cd ludi-remix
 ```
 
-### Development
+2. Install dependencies:
 
-Start the development server with HMR:
+```bash
+npm i
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:3000`.
+4. Open http://localhost:5173/ to view in your browser.
 
-## Building for Production
+## ⚠️ Disclaimer
 
-Create a production build:
+THIS PROJECT IS INTENDED FOR VIEWING AND REFERENCE PURPOSES ONLY. WHILE THE SOURCE CODE IS PUBLICLY ACCESSIBLE, IT IS NOT INTENDED FOR UNAUTHORIZED MODIFICATION, REDISTRIBUTION, OR COMMERCIAL USE.
 
-```bash
-npm run build
-```
-
-## Deployment
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/remix-run/react-router-templates&create_from_path=netlify)
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+IF YOU ARE EXPLORING THIS REPOSITORY, PLEASE RESPECT THE CREATOR’S WORK AND DO NOT USE IT BEYOND PERSONAL LEARNING OR REFERENCE.
