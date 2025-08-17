@@ -47,8 +47,7 @@ export function Welcome() {
 							<h2 className="text-2xl font-bold tracking-wide">{platform}</h2>
 							<div className="flex-1 h-px bg-gray-300 ml-4"></div>
 						</div>
-
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center">
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 justify-items-center">
 							{filteredGames.map((game) => (
 								<a
 									key={game.id}
@@ -64,7 +63,8 @@ export function Welcome() {
 										loading="lazy"
 									/>
 
-									<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
+									<div
+										className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
         opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out
         flex flex-col justify-end p-4 text-white"
 									>

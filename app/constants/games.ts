@@ -131,6 +131,29 @@ const rawGames: Omit<Game, "id">[] = [
 		image: "/hades-2.webp",
 		link: "https://store.steampowered.com/app/1145350/Hades_II/",
 	},
+	{
+		title: "NieR: Automata",
+		platform: "PS4",
+		status: "Playing",
+		image: "/nier.jpg",
+		link: "https://www.playstation.com/en-ph/games/nier-automata/",
+	},
+	{
+		title: "Final Fantasy XV",
+		platform: "PS4",
+		status: "Completed",
+		completion: "Story",
+		image: "/ffxv.jpg",
+		link: "https://www.playstation.com/en-ph/games/final-fantasy-xv/",
+	},
+	{
+		title: "Crisis Core: Final Fantasy VII Reunion",
+		platform: "PS4",
+		status: "Completed",
+		completion: "Story",
+		image: "/crisis-core.webp",
+		link: "https://www.playstation.com/en-ph/games/crisis-core-final-fantasy-vii-reunion/",
+	},
 ];
 
 // 👇 Auto-generate stable IDs from title
