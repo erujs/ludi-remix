@@ -1,6 +1,6 @@
 export default function HeaderShowcase() {
 	return (
-		<div className="relative w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-lg mb-4">
+		<div className="relative w-full h-64 md:h-96 overflow-hidden shadow-lg mb-4">
 			<video
 				autoPlay
 				loop

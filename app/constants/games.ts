@@ -154,6 +154,38 @@ const rawGames: Omit<Game, "id">[] = [
 		image: "/crisis-core.webp",
 		link: "https://www.playstation.com/en-ph/games/crisis-core-final-fantasy-vii-reunion/",
 	},
+	{
+		title: "Watch Dogs",
+		platform: "PC",
+		status: "Completed",
+		completion: "Story",
+		image: "/watchdogs.jpg",
+		link: "https://store.ubisoft.com/sea/watch-dogs/56c494ae88a7e300458b4d72.html?lang=en_PH",
+	},
+	{
+		title: "Watch Dogs 2",
+		platform: "PC",
+		status: "Completed",
+		completion: "Story",
+		image: "/watchdogs-2.jpg",
+		link: "https://store.ubisoft.com/sea/watch-dogs-2/574dc08e29e12341518b4567.html?lang=en_PH",
+	},
+	{
+		title: "Watch Dogs 2",
+		platform: "PC",
+		status: "Completed",
+		completion: "Story",
+		image: "/watchdogs-legion.jpg",
+		link: "https://store.ubisoft.com/sea/watch-dogs-legion/5ced3b5c39798c0870c0769e.html?lang=en_PH",
+	},
+	{
+		title: "The 3rd Birthday",
+		platform: "PSP",
+		status: "Completed",
+		completion: "Story",
+		image: "/3rd-birthday.jpg",
+		link: "https://en.wikipedia.org/wiki/The_3rd_Birthday",
+	},
 ];
 
 // 👇 Auto-generate stable IDs from title
