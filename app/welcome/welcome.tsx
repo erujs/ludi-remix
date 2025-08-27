@@ -1,19 +1,34 @@
-import { useState } from "react";
-import { games } from "~/constants/games";
+import { useEffect, useState } from "react";
 import SearchBar from "~/components/search-bar";
 import HeaderShowcase from "~/components/header-showcase";
-import type { GameStatus } from "~/constants/games";
+import type { GameStatus, Game } from "lib/games";
 
 export function Welcome() {
 	const platforms = ["PC", "PlayStation"];
 	const [search, setSearch] = useState("");
 	const [showSearch, setShowSearch] = useState(false);
+	const [games, setGames] = useState<Game[]>([]);
+	const API_URL = import.meta.env.VITE_GULA_DATA_URL || "http://localhost:3000";
 
 	const statusOrder: Record<GameStatus, number> = {
 		Playing: 0,
 		Wishlist: 1,
 		Completed: 2,
 	};
+
+	useEffect(() => {
+    async function fetchGames() {
+      try {
+        const res = await fetch(`${API_URL}/api/games`);
+        const data: Game[] = await res.json();
+        setGames(data);
+      } catch (err) {
+        console.error("Failed to fetch games:", err);
+      }
+    }
+
+    fetchGames();
+  }, []);
 
 	return (
 		<div className="container mx-auto p-8">
@@ -57,7 +72,7 @@ export function Welcome() {
 									className="relative group overflow-hidden shadow-lg bg-gray-200 aspect-[2/3] w-full max-w-xs hover:shadow-2xl transition-shadow duration-300"
 								>
 									<img
-										src={game.image}
+										src={`${API_URL}/ludi-remix${game.image}`}
 										alt={game.title}
 										className="absolute inset-0 w-full h-full object-cover"
 										loading="lazy"

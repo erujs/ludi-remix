@@ -1,6 +1,8 @@
 # Ludi Remix
 
-Ludi Remix, this is [React Router](https://reactrouter.com/home) + [Vite](https://vitejs.dev) project bootstrapped with [`create-react-router`](https://reactrouter.com/start/framework/installation), inspired by Remix Conventions.
+Game Backlog ~ A simple game backlog for tracking progress and completion.  
+'Ludi' means "games" in Latin, and the app is built with Remix Conventions.  
+This is a [React Router](https://reactrouter.com/home) + [Vite](https://vitejs.dev) project bootstrapped with [`create-react-router`](https://reactrouter.com/start/framework/installation), inspired by Remix Conventions.
 
 ## Tech Stack
 

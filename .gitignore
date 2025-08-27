@@ -7,3 +7,5 @@
 
 # Netlify
 .netlify
+
+.env.local
