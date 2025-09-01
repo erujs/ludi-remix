@@ -31,7 +31,7 @@ npm i
 npm run dev
 ```
 
-4. Open http://localhost:3000/ to view in your browser.
+4. Open http://localhost:3001/ to view in your browser.
 
 ## ⚠️ Disclaimer
 
