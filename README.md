@@ -1,87 +1,37 @@
-# Welcome to React Router!
+# Ludi Remix
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Game Backlog ~ A simple game backlog for tracking progress and completion.  
+This is a [React Router](https://reactrouter.com/home) + [Vite](https://vitejs.dev) project bootstrapped with [`create-react-router`](https://reactrouter.com/start/framework/installation), inspired by Remix Conventions.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Tech Stack
 
-## Features
+ - Framework: React Router + Vite + Remix
+ - Styling: Tailwind CSS
+ - Deployment: Netlify
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Local Setup
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+1. Clone the repo:
 
 ```bash
-npm install
+git@github.com:erujs/ludi-remix.git
+cd ludi-remix
 ```
 
-### Development
+2. Install dependencies:
 
-Start the development server with HMR:
+```bash
+npm i
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+## ⚠️ Disclaimer
 
-## Building for Production
+THIS PROJECT IS INTENDED FOR VIEWING AND REFERENCE PURPOSES ONLY. WHILE THE SOURCE CODE IS PUBLICLY ACCESSIBLE, IT IS NOT INTENDED FOR UNAUTHORIZED MODIFICATION, REDISTRIBUTION, OR COMMERCIAL USE.
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+IF YOU ARE EXPLORING THIS REPOSITORY, PLEASE RESPECT THE CREATOR’S WORK AND DO NOT USE IT BEYOND PERSONAL LEARNING OR REFERENCE.

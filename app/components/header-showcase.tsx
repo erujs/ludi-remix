@@ -1,3 +1,5 @@
+import { Gamepad2 } from "lucide-react";
+
 export default function HeaderShowcase() {
 	return (
 		<div className="relative w-full h-64 md:h-96 overflow-hidden shadow-lg mb-4">
@@ -12,6 +14,7 @@ export default function HeaderShowcase() {
 			</video>
 			<div className="absolute inset-0 flex flex-col justify-center items-center bg-black/40 text-white px-4 text-center z-10">
 				<div className="flex items-center justify-center gap-2 text-center">
+					<Gamepad2 className="h-13 w-13 text-white transform scale-x-[-1]" />
 					<h1 className="text-5xl font-bold text-white font-sans">
 						Ludi
 					</h1>
