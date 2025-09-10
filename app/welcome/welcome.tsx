@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "~/components/search-bar";
 import HeaderShowcase from "~/components/header-showcase";
-import type { GameStatus, Game } from "lib/games";
+import type { GameStatus, Game } from "~/lib/games";
 
 export function Welcome() {
 	const platforms = ["PC", "PlayStation"];
