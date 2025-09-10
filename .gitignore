@@ -4,8 +4,3 @@
 # React Router
 /.react-router/
 /build/
-
-# Netlify
-.netlify
-
-.env.local
