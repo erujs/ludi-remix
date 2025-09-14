@@ -1,105 +1,46 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAPI } from "~/hooks/useAPI";
 import SearchBar from "~/components/search-bar";
 import HeaderShowcase from "~/components/header-showcase";
-import type { GameStatus, Game } from "~/lib/games";
+import { GameSection } from "~/components/game-section";
+import type { Games } from "~/lib/game-types";
 
 export function Welcome() {
-	const platforms = ["PC", "PlayStation"];
 	const [search, setSearch] = useState("");
 	const [showSearch, setShowSearch] = useState(false);
-	const [games, setGames] = useState<Game[]>([]);
 	const API_URL = import.meta.env.VITE_GULA_DATA_URL || "http://localhost:3000";
+	const { data: games, error, loading } = useAPI<Games[]>(`${API_URL}/api/games`);
 
-	const statusOrder: Record<GameStatus, number> = {
-		Playing: 0,
-		Wishlist: 1,
-		Completed: 2,
-	};
-
-	useEffect(() => {
-    async function fetchGames() {
-      try {
-        const res = await fetch(`${API_URL}/api/games`);
-        const data: Game[] = await res.json();
-        setGames(data);
-      } catch (err) {
-        console.error("Failed to fetch games:", err);
-      }
-    }
-
-    fetchGames();
-  }, []);
+	if (error) {
+		throw new Error(error)
+	}
 
 	return (
-		<div className="container mx-auto p-8">
+		<>
 			<HeaderShowcase />
 
-			{platforms.map((platform) => {
-				const filteredGames = games
-					.filter((game) => {
-						// Platform filter
-						const isPlatformMatch =
-							(platform === "PlayStation" &&
-								(game.platform.toLowerCase().includes("playstation") ||
-									game.platform.toLowerCase().startsWith("ps"))) ||
-							(platform === "PC" && game.platform.toLowerCase() === "pc");
+			<div className="container mx-auto p-6">
+				{loading && (
+					<div className="fixed top-0 left-0 w-full h-1 z-50">
+						<div className="h-1 w-full bg-cyan-400 animate-pulse" />
+					</div>
+				)}
 
-						// Search filter
-						const isSearchMatch =
-							game.title.toLowerCase().includes(search.toLowerCase()) ||
-							game.status.toLowerCase().includes(search.toLowerCase()) ||
-							game.platform.toLowerCase().includes(search.toLowerCase());
+				{games?.map((group) => (
+					<GameSection
+						key={group.id}
+						group={group}
+						API_URL={API_URL}
+						search={search}
+						isHome />
+				))}
 
-						return isPlatformMatch && isSearchMatch;
-					})
-					.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
-
-				if (filteredGames.length === 0) return null;
-
-				return (
-					<section key={platform} className="mb-12">
-						<div className="flex items-center mb-6">
-							<h2 className="text-2xl font-bold tracking-wide">{platform}</h2>
-							<div className="flex-1 h-px bg-gray-300 ml-4"></div>
-						</div>
-						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 justify-items-center">
-							{filteredGames.map((game) => (
-								<a
-									key={game.id}
-									href={game.link}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="relative group overflow-hidden shadow-lg bg-gray-200 aspect-[2/3] w-full max-w-xs hover:shadow-2xl transition-shadow duration-300"
-								>
-									<img
-										src={`${API_URL}/ludi-remix${game.image}`}
-										alt={game.title}
-										className="absolute inset-0 w-full h-full object-cover"
-										loading="lazy"
-									/>
-									<div
-										className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
-        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out
-        flex flex-col justify-end p-4 text-white"
-									>
-										<h3 className="text-lg font-bold mb-1">{game.title}</h3>
-										<p className="text-xs uppercase tracking-wide opacity-80">{game.platform}</p>
-										<p className="text-sm mt-2">🎯 {game.status}</p>
-										{game.completion && <p className="text-sm">🏆 {game.completion}</p>}
-									</div>
-								</a>
-							))}
-						</div>
-					</section>
-				);
-			})}
-
-			<SearchBar
-				search={search}
-				setSearch={setSearch}
-				showSearch={showSearch}
-				setShowSearch={setShowSearch}
-			/>
-		</div>
+				<SearchBar
+					search={search}
+					setSearch={setSearch}
+					showSearch={showSearch}
+					setShowSearch={setShowSearch} />
+			</div>
+		</>
 	);
 }
