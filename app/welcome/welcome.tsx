@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAPI } from "~/hooks/useAPI";
+import { useAPI } from "~/hooks/use-api";
 import SearchBar from "~/components/search-bar";
 import HeaderShowcase from "~/components/header-showcase";
 import { GameSection } from "~/components/game-section";
@@ -11,9 +11,7 @@ export function Welcome() {
 	const API_URL = import.meta.env.VITE_GULA_DATA_URL || "http://localhost:3000";
 	const { data: games, error, loading } = useAPI<Games[]>(`${API_URL}/api/games`);
 
-	if (error) {
-		throw new Error(error)
-	}
+	if (error) throw new Error(error)
 
 	return (
 		<>

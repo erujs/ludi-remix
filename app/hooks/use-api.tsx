@@ -6,15 +6,17 @@ interface UseAPIProps<T> {
   loading: boolean
 }
 
-export function useAPI<T>(url: string): UseAPIProps<T> {
+export function useAPI<T>(url?: string): UseAPIProps<T> {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!url) return
+
     const fetchData = async () => {
+      setLoading(true)
       try {
-        setLoading(true)
         const response = await fetch(url)
 
         if (!response.ok) {
@@ -34,24 +36,21 @@ export function useAPI<T>(url: string): UseAPIProps<T> {
           return
         }
 
-        const data = await response.json()
-        setData(data)
-      } catch (error) {
-        console.error(error)
-
-        if (error instanceof Error) {
-          setError(error.message)
+        const json = await response.json()
+        setData(json)
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message)
         } else {
           setError("An unknown error occurred!")
         }
       } finally {
         setLoading(false)
-
       }
     }
 
     fetchData()
-  }, [])
+  }, [url])
 
   return { data, error, loading }
 }

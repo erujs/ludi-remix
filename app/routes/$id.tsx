@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
-import { useAPI } from "~/hooks/useAPI";
+import { useAPI } from "~/hooks/use-api";
 import { GameSection } from "~/components/game-section";
 import SearchBar from "~/components/search-bar";
 import { House } from "lucide-react";
-import type { Route } from "./+types/platform.$id";
 import type { Games } from "~/lib/game-types";
+import type { Route } from "./+types/$id";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -21,9 +21,7 @@ export default function Platform() {
   const API_URL = import.meta.env.VITE_GULA_DATA_URL || "http://localhost:3000";
   const { data: game, error, loading } = useAPI<Games | Games[] | null>(`${API_URL}/api/games/${id}`);
 
-  if (error) {
-    throw new Error(error)
-  }
+  if (error) throw new Error(error)
 
   return (
     <div className="container mx-auto p-8">
