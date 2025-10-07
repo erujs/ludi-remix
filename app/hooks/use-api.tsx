@@ -18,32 +18,16 @@ export function useAPI<T>(url?: string): UseAPIProps<T> {
       setLoading(true)
       try {
         const response = await fetch(url)
+        const json = await response.json()
 
         if (!response.ok) {
-          switch (response.status) {
-            case 400:
-              setError(`${response.statusText}: Missing or invalid request parameters.`)
-              break
-            case 403:
-              setError(`${response.statusText}: Access to this resource is restricted.`)
-              break
-            case 404:
-              setError(`${response.statusText}: Requested data is not available.`)
-              break
-            default:
-              setError(`${response.statusText}: Unexpected error occurred.`)
-          }
+          setError(`${json.error.code} | ${json.error.message}`)
           return
         }
 
-        const json = await response.json()
         setData(json)
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message)
-        } else {
-          setError("An unknown error occurred!")
-        }
+      } catch (error) {
+        setError(`NetworkError | ${error instanceof Error ? error.message : "An unknown error occurred"}`)
       } finally {
         setLoading(false)
       }
