@@ -3,9 +3,10 @@ import type { GameStatus, GameSectionProps } from "~/lib/game-types";
 
 export function GameSection({ group, API_URL, search, isHome = false }: GameSectionProps) {
   const statusOrder: Record<GameStatus, number> = {
-    Playing: 0,
-    Wishlist: 1,
-    Completed: 2,
+    Completed: 0,
+    Playing: 1,
+    Backlog: 2,
+    Wishlist: 3,
   };
 
   const searchLower = search.trim().toLowerCase();
@@ -51,7 +52,7 @@ export function GameSection({ group, API_URL, search, isHome = false }: GameSect
             <img
               src={`${API_URL}/ludi-remix${game.image}`}
               alt={game.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-fill"
               loading="lazy"
             />
             <div
