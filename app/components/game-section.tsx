@@ -4,9 +4,10 @@ import type { GameStatus, GameSectionProps } from "~/lib/game-types";
 export function GameSection({ group, API_URL, search, isHome = false }: GameSectionProps) {
   const statusOrder: Record<GameStatus, number> = {
     Completed: 0,
-    Playing: 1,
-    Backlog: 2,
-    Wishlist: 3,
+    Played: 1,
+    Playing: 2,
+    Backlog: 3,
+    Wishlist: 4,
   };
 
   const searchLower = search.trim().toLowerCase();

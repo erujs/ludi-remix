@@ -1,4 +1,4 @@
-export type GameStatus = "Wishlist" | "Playing" | "Completed" | "Backlog";
+export type GameStatus = "Completed" | "Played" | "Playing" | "Backlog" | "Wishlist";
 export type CompletionType = "Story" | "Full" | "Endless";
 
 export interface Game {
