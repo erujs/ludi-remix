@@ -26,7 +26,7 @@ export default function HeaderShowcase() {
 					/>
 				</div>
 
-				<p className="mt-2">
+				<p className="m-2">
 					A simple game backlog for tracking progress and completion.<br />
 					&apos;Ludi&apos; means "games" in Latin, and the app is built with Remix Conventions.
 				</p>
